@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":client-java:main" external.linked.project.path="$MODULE_DIR$/../../../client-java" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="client" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="3" platform="JVM 1.6" useProjectSettings="false">
+        <compilerSettings />
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../../client-java/build/classes/kotlin/main" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.heinrichreimer/elasticsearch-kotlin-dsl/0.1.1/cd884bc2531b4481f1d444649f92d8e2a855a2a/elasticsearch-kotlin-dsl-0.1.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.3.11/dd9bff00d6cfca58b6c1fe89be8e0678e35cf35f/kotlin-stdlib-jdk8-1.3.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/mbuhot/eskotlin/0.6.0/f7bc3495d184137822645817ba3aa84700504c57/eskotlin-0.6.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch.client/elasticsearch-rest-high-level-client/6.5.2/da887793671165cfcd47845714bec1e33683c41b/elasticsearch-rest-high-level-client-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-core/2.11.1/592a48674c926b01a9a747c7831bcd82a9e6d6e4/log4j-core-2.11.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.11/4839661cf6ce3c14b65ed7dcf5b9249b44ecca16/kotlin-stdlib-jdk7-1.3.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/1.0.1/f33e8dab753f33d1bbb07cca664fd6f13d993d7e/kotlinx-coroutines-core-1.0.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.11/4cbc5922a54376018307a731162ccaf3ef851a39/kotlin-stdlib-1.3.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch/6.5.2/b1011f7e7b60b9547f7fe74db9a9174dd3b50c51/elasticsearch-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch.plugin/parent-join-client/6.5.2/20a6d62dd898e7c61bca687e76b62707bdf5da16/parent-join-client-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch.client/elasticsearch-rest-client/6.5.2/6ad0dd15affe56be7dfe638fe317bc5f7456b730/elasticsearch-rest-client-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch.plugin/aggs-matrix-stats-client/6.5.2/2d99ae802ad3e8db4aaa566700302d3f3dc6e469/aggs-matrix-stats-client-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch.plugin/rank-eval-client/6.5.2/390e76d5534c713f51ff86bf654bcba4f97c67e4/rank-eval-client-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch.plugin/lang-mustache-client/6.5.2/b71a3670dd0a978fc8783c0d2ac2454b0bebd1d1/lang-mustache-client-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.logging.log4j/log4j-api/2.11.1/268f0fe4df3eefe052b57c87ec48517d64fb2a10/log4j-api-2.11.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-common/1.0.1/679991d1b388fd9392eeb3d63b10b3f4c284f389/kotlinx-coroutines-core-common-1.0.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.11/d8b8e746e279f1c4f5e08bc14a96b82e6bb1de02/kotlin-stdlib-common-1.3.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations/13.0/919f0dfe192fb4e063e7dacadee7f8bb9a2672a9/annotations-13.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-x-content/6.5.2/19613d5dd49af12096640c24c7696660cbe35183/elasticsearch-x-content-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-cli/6.5.2/8dc3dddbab0a0e9619c3c19427184e02685ca0e3/elasticsearch-cli-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-core/6.5.2/509992cd5eb8a971b908ab43968f8cb83a478fb2/elasticsearch-core-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch/elasticsearch-secure-sm/6.5.2/560ef41531060b335e02f4401d26412d873a98c0/elasticsearch-secure-sm-6.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-core/7.5.0/736e94305e2a0e803563c5b184877df5c7d4cb69/lucene-core-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-analyzers-common/7.5.0/e7fbdfc2297c3ff5d194d7bef95810504e52710e/lucene-analyzers-common-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-backward-codecs/7.5.0/3ebd10f4a1fe71a92b69c0d653136bcf9790a165/lucene-backward-codecs-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-grouping/7.5.0/f326a63640a288c302c713fcf2965fdc827b3cca/lucene-grouping-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-highlighter/7.5.0/59420a5e30f12885f160e49bb975ab6b5985bd3d/lucene-highlighter-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-join/7.5.0/65d3c275b094383640d393579cdb7aff22bcd1d/lucene-join-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-memory/7.5.0/b8cc0c311a823287264653fbd05f866e059d303c/lucene-memory-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-misc/7.5.0/60d0a02b9297b5423d5400a6b0aa114915232b60/lucene-misc-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-queries/7.5.0/bfbf786b75c60a25daf33d389efd6458e17218d9/lucene-queries-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-queryparser/7.5.0/3eefb522e150f2ba0009df20f3bcfa91d60e7090/lucene-queryparser-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-sandbox/7.5.0/9fa3bb1c81179e112a62c0db6749767127c616bd/lucene-sandbox-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-spatial/7.5.0/8de64a6a8ad22b5849f2ab5f824917723de7a349/lucene-spatial-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-spatial-extras/7.5.0/b0892bbc0dc16ca07cf98897df3b3e9ed3069615/lucene-spatial-extras-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-spatial3d/7.5.0/672920a7fb48624bcb84ce0ee67dd0c7bc080c94/lucene-spatial3d-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.lucene/lucene-suggest/7.5.0/aa7d170871711ebd4dbd367d7b8ee0f1eb5e88b7/lucene-suggest-7.5.0.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/com.carrotsearch/hppc/0.7.1/8b5057f74ea378c0150a1860874a3ebdcb713767/hppc-0.7.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/joda-time/joda-time/2.10.1/9ac3dbf89dbf2ee385185dd0cd3064fe789efee0/joda-time-2.10.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/com.tdunning/t-digest/3.2/2ab94758b0276a8a26102adf8d528cf6d0567b9a/t-digest-3.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.hdrhistogram/HdrHistogram/2.1.9/e4631ce165eb400edecfa32e03d3f1be53dee754/HdrHistogram-2.1.9.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.elasticsearch/jna/4.5.1/da10908ae23dc59b19dc258e63aea1c44621dc3a/jna-4.5.1.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.2/733db77aa8d9b2d68015189df76ab06304406e50/httpclient-4.5.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.4.5/e7501a1b34325abb00d17dde96150604a0658b54/httpcore-4.4.5.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpasyncclient/4.1.2/95aa3e6fb520191a0970a73cf09f62948ee614be/httpasyncclient-4.1.2.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore-nio/4.4.5/f4be009e7505f6ceddf21e7960c759f413f15056/httpcore-nio-4.4.5.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/commons-codec/commons-codec/1.10/4b95f4897fa13f2cd904aee711aeafc0c5295cd8/commons-codec-1.10.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.3/f6f66e966c70a83ffbdb6f17a0919eaf7c8aca7f/commons-logging-1.1.3.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/com.github.spullara.mustache.java/compiler/0.9.3/2815e016c63bec4f18704ea4f5489106a5b01a99/compiler-0.9.3.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.17/7a27ea250c5130b2922b86dea63cbb1cc10a660c/snakeyaml-1.17.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.8.11/876ead1db19f0c9e79c9789273a3ef8c6fd6c29b/jackson-core-2.8.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-smile/2.8.11/d9d1c49c5d9d5e46e2aee55f3cdd119286fe0fc1/jackson-dataformat-smile-2.8.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.8.11/2e77c6ff7342cd61ab1ae7cb14ed16aebfc8a72a/jackson-dataformat-yaml-2.8.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.dataformat/jackson-dataformat-cbor/2.8.11/8b9826e16c3366764bfb7ad7362554f0471046c3/jackson-dataformat-cbor-2.8.11.jar;C:/Users/kiese/.gradle/caches/modules-2/files-2.1/net.sf.jopt-simple/jopt-simple/5.0.2/98cafc6081d5632b61be2c9e60650b64ddbc637c/jopt-simple-5.0.2.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="client-java" />
+          <option name="addCompilerBuiltIns" value="true" />
+          <option name="loadBuiltInsFromDependencies" value="true" />
+          <option name="languageVersion" value="1.3" />
+          <option name="apiVersion" value="1.3" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../../client-java/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../client-java/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../client-java/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../client-java/src/main/kotlin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../client-java/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: com.heinrichreimer:elasticsearch-kotlin-dsl:0.1.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.11" level="project" />
+    <orderEntry type="library" name="Gradle: mbuhot:eskotlin:0.6.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch.client:elasticsearch-rest-high-level-client:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-core:2.11.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch:elasticsearch:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch.plugin:parent-join-client:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch.client:elasticsearch-rest-client:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch.plugin:aggs-matrix-stats-client:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch.plugin:rank-eval-client:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch.plugin:lang-mustache-client:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.11.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.11" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch:elasticsearch-x-content:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch:elasticsearch-cli:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch:elasticsearch-core:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch:elasticsearch-secure-sm:6.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-core:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-analyzers-common:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-backward-codecs:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-grouping:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-highlighter:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-join:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-memory:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-misc:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-queries:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-queryparser:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-sandbox:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-spatial:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-spatial-extras:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-spatial3d:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.lucene:lucene-suggest:7.5.0" level="project" />
+    <orderEntry type="library" name="Gradle: com.carrotsearch:hppc:0.7.1" level="project" />
+    <orderEntry type="library" name="Gradle: joda-time:joda-time:2.10.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.tdunning:t-digest:3.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.hdrhistogram:HdrHistogram:2.1.9" level="project" />
+    <orderEntry type="library" name="Gradle: org.elasticsearch:jna:4.5.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.4.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpasyncclient:4.1.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore-nio:4.4.5" level="project" />
+    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.10" level="project" />
+    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.1.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.spullara.mustache.java:compiler:0.9.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.17" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.8.11" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-smile:2.8.11" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.8.11" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:2.8.11" level="project" />
+    <orderEntry type="library" name="Gradle: net.sf.jopt-simple:jopt-simple:5.0.2" level="project" />
+  </component>
+</module>
