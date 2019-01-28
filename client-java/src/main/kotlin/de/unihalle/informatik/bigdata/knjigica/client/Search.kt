@@ -69,10 +69,12 @@ object Search {
             source {
                 size = SCROLL_PAGE_SIZE
 
-                queryBool {
+                query = bool {
                     should(
-                            "roleName" match input,
-                            "text" match input
+                            "roleName".match(input),
+                            "text" match input,
+                            "section.ACT" match input,
+                            "section.SCENE" match input
                     )
                 }
             }

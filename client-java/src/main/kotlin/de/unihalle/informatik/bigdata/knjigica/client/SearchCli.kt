@@ -46,7 +46,7 @@ object SearchCli {
 
         var type: Search.QueryType? = guessType(firstGuess)
         if (type == null) {
-            print("Would you like to search the $DEFAULT_TYPE index ? (y/N) ")
+            print("Would you like to search the '$DEFAULT_TYPE' index ? (y/N) ")
             if (readLine()?.toLowerCase() == "y") {
                 type = DEFAULT_TYPE
             }
