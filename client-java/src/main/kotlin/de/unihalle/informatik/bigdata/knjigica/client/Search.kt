@@ -71,8 +71,9 @@ object Search {
 
                 query = bool {
                     should(
-                            "roleName".match(input),
+                            "roleName" match input,
                             "text" match input,
+                            "instruction" match input,
                             "section.ACT" match input,
                             "section.SCENE" match input
                     )
