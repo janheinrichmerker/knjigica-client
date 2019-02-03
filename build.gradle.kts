@@ -5,7 +5,7 @@ buildscript {
 }
 
 group = "de.unihalle.informatik.bigdata.knjigica"
-version = "0.1.0"
+version = "0.1.1-alpha01"
 
 allprojects {
     repositories {
