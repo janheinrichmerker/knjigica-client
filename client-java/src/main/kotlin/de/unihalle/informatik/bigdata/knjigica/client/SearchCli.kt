@@ -2,134 +2,152 @@ package de.unihalle.informatik.bigdata.knjigica.client
 
 import de.unihalle.informatik.bigdata.knjigica.client.extension.isEmpty
 import de.unihalle.informatik.bigdata.knjigica.client.extension.totalHits
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.ObsoleteCoroutinesApi
-import kotlinx.coroutines.channels.*
 import kotlinx.coroutines.runBlocking
 import org.elasticsearch.action.search.SearchResponse
 import org.elasticsearch.search.SearchHit
 
-@ObsoleteCoroutinesApi
-@ExperimentalCoroutinesApi
 object SearchCli {
-
-    private val DEFAULT_TYPE = Search.QueryType.PLOT
 
     @JvmStatic
     fun main(args: Array<String>) {
         runBlocking {
-            runSearch(args.getOrNull(0), args.getOrNull(1))
+            runSearch(args.getOrNull(0))
         }
         System.exit(0)
     }
 
-    private suspend fun runSearch(typeArg: String?, queryArg: String?) {
-        val type = getType(typeArg)
-        val query = getQuery(type, queryArg)
+    private suspend fun runSearch(queryArg: String?) {
+        val query = getQuery(queryArg)
 
-        println("Searching $type for query '$query'.")
-        val channel: ReceiveChannel<SearchResponse> = Search.searchAll(type, query)
-        printResults(channel)
+        println("Searching for '$query'.")
+        val searchResults = Search.searchAllAsync(query).await()
+        searchResults.printResults()
         println()
         println("Good bye!")
     }
 
-    private fun getType(firstGuess: String?): Search.QueryType {
-
-        fun guessType(guess: String?): Search.QueryType? {
-            return when (guess) {
-                "plot" -> Search.QueryType.PLOT
-                else -> null
-            }
-        }
-
-        var type: Search.QueryType? = guessType(firstGuess)
-        if (type == null) {
-            print("Would you like to search the '$DEFAULT_TYPE' index ? (y/N) ")
-            if (readLine()?.toLowerCase() == "y") {
-                type = DEFAULT_TYPE
-            }
-        }
-        while (type == null) {
-            print("Specify query type: ")
-            type = guessType(readLine())
-        }
-        return type
-    }
-
-    private fun getQuery(type: Search.QueryType, first: String?): String {
+    private fun getQuery(first: String?): String {
         var query: String? = first
         while (query == null) {
-            print("Type in query to search $type for: ")
+            print("Type in query: ")
             query = readLine()
         }
         return query
     }
 
-    private fun ReceiveChannel<SearchResponse>.printGlobalStats(): ReceiveChannel<SearchResponse> {
-        return mapIndexed { index, response ->
-            if (index == 0) {
-                if (response.isEmpty()) {
-                    println("Sorry! Found no hits.")
-                } else {
-                    println("Found ${response.totalHits} hits in ${response.took}:")
-                }
-                println()
-            }
+    private fun List<SearchResponse>.printGlobalStats() {
 
-            response
+        val first = firstOrNull()
+        if (first?.isEmpty() != false) {
+            println("Sorry! Found no hits.")
+        } else {
+            println("Found ${first.totalHits} hits in ${first.took}:")
         }
+        println()
     }
 
-    private fun ReceiveChannel<SearchResponse>.flatMapHits(): ReceiveChannel<SearchHit> {
-        return map { it.hits }
-                .flatMap { hits ->
-                    GlobalScope.produce {
-                        hits.hits.forEach {
-                            send(it)
-                        }
+    private fun List<SearchResponse>.flatMapHits(): List<SearchHit> = flatMap { it.hits.hits.asList() }
+
+    private fun <T : Any> List<T>.disturb(counter: Int = 1): Sequence<T> {
+        var first = true
+        return chunked(counter)
+                .asSequence()
+                .takeWhile {
+                    if (first) {
+                        first = false
+                        true
                     }
-                }
-    }
-
-    private fun <T : Any> ReceiveChannel<T>.disturb(counter: Int = 1): ReceiveChannel<T> {
-        return mapIndexed { index, element -> index to element }
-                .takeWhile { (index, _) ->
-                    if (index % counter == 0 && index != 0) {
+                    else {
                         println("Would you like to see more? (Y/n)")
                         val shouldCancel = readLine()?.toLowerCase() == "n"
                         !shouldCancel
-                    } else true
+                    }
                 }
-                .map { (_, element) -> element }
+                .flatMap { it.asSequence() }
     }
 
-    private suspend fun printResults(channel: ReceiveChannel<SearchResponse>) {
-        channel.printGlobalStats()
-                .disturb()
-                .flatMapHits()
+    private fun List<SearchResponse>.printResults() {
+        printGlobalStats()
+        flatMapHits()
+                .disturb(counter = 8)
                 .printHits()
     }
 
-    private suspend fun ReceiveChannel<SearchHit>.printHits() = consumeEach(::printHit)
+    private fun Sequence<SearchHit>.printHits() = forEach { it.printHit() }
 
-    private fun printHit(hit: SearchHit) {
-        val source: Map<String, Any> = hit.sourceAsMap
-        val roleName = source["roleName"]?.toString()
+    private fun SearchHit.printHit() {
+        when (type) {
+            IndexConfiguration.Plot.type -> printPlotHit()
+            IndexConfiguration.Role.type -> printRoleHit()
+            IndexConfiguration.Annotation.type -> printAnnotationHit()
+            IndexConfiguration.Author.type -> printAuthorHit()
+            IndexConfiguration.Opera.type -> printOperaHit()
+            else -> println(this)
+        }
+        println()
+    }
+
+    private fun SearchHit.printPlotHit() {
+        println("Plot (hit score = $score):")
+        val source: Map<String, Any> = sourceAsMap
+        val operaTitle = source["operaTitle"]?.toString()
+        val roleName = source["roleName"]?.toString()?.toUpperCase() ?: "ALL"
         @Suppress("unchecked_cast")
         val section = source["section"] as Map<String, Any>
         val act = section["ACT"]?.toString()
         val scene = section["SCENE"]?.toString()
         val text = source["text"]?.toString()
         val instruction = source["instruction"]?.toString()
-        println("${roleName ?: "All"} at $act, $scene (hit score = ${hit.score}):")
+        println("$roleName in \"$operaTitle\" at '$act', '$scene':")
         if (instruction != null) {
-            println(instruction.prependIndent("! "))
+            println(instruction.prependIndent("=> "))
         }
         if (text != null) {
-            println(text.prependIndent("> "))
+            println(text.prependIndent(">> "))
         }
-        println()
+    }
+
+    private fun SearchHit.printRoleHit() {
+        println("Role (hit score = $score):")
+        val source: Map<String, Any> = sourceAsMap
+        val operaTitle = source["operaTitle"]?.toString()
+        val name = source["name"]?.toString()?.toUpperCase()
+        val description = source["description"]?.toString()
+        val voice = source["voice"]?.toString()?.toLowerCase()?.replace('_', ' ')
+        println("$name${description?.let { " ($it)" } ?: ""}${voice?.let {" - $voice"} ?: ""} in \"$operaTitle\"")
+    }
+
+    private fun SearchHit.printOperaHit() {
+        println("Opera (hit score = $score):")
+        val source: Map<String, Any> = sourceAsMap
+        val title = source["title"]?.toString()?.toUpperCase()
+        val subtitle = source["subtitle"]?.toString()
+        val language = source["language"]?.toString()
+        println("\"$title\"${subtitle?.let { " - \"$it\"" } ?: ""}${language?.let {" ($it)"} ?: ""}")
+    }
+
+    private fun SearchHit.printAuthorHit() {
+        println("Author (hit score = $score):")
+        val source: Map<String, Any> = sourceAsMap
+        val name = source["name"]?.toString()?.toUpperCase()
+        val fullName = source["fullName"]?.toString()?.takeIf { it != name }
+        val scope = source["scope"]?.toString()?.toLowerCase()
+        val operaTitle = source["operaTitle"]?.toString()
+        println("$name${fullName?.let { " ($it)" } ?: ""}")
+        if (operaTitle != null && scope != null) {
+            println("~> $scope for \"$operaTitle\"")
+        }
+    }
+
+    private fun SearchHit.printAnnotationHit() {
+        println("Annotation (hit score = $score):")
+        val source: Map<String, Any> = sourceAsMap
+        val operaTitle = source["operaTitle"]?.toString()
+        val title = source["title"]?.toString()?.toUpperCase()
+        val text = source["text"]?.toString()
+        println("$title about \"$operaTitle\"")
+        if (text != null) {
+            println(text.prependIndent("~> "))
+        }
     }
 }

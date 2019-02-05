@@ -23,7 +23,7 @@ infix fun String.match(text: Any): MatchQueryBuilder =
 inline fun String.match(text: Any, block: MatchQueryBuilder.() -> Unit): MatchQueryBuilder =
         match(text).apply(block)
 
-infix fun String.matchPhrase(text: Any): MatchQueryBuilder =
-        matchQuery(this, text)
+infix fun String.matchPhrase(text: Any): MatchPhraseQueryBuilder =
+        matchPhraseQuery(this, text)
 
 
